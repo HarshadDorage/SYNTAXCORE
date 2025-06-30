@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTAXCORE | Java Development Courses</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Custom Classes */
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+        
+        .course-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .course-card:hover .course-icon {
+            transform: rotateY(180deg) scale(1.1);
+        }
+        
+        .course-icon {
+            transition: all 0.6s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-white shadow-sm">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold flex items-center">
+                    <span class="gradient-text text-3xl">SYNTAXCORE</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <ul class="flex space-x-8">
+                        <li><a href="#home" class="nav-link font-medium transition-colors">Home</a></li>
+                        <li><a href="#about" class="nav-link font-medium transition-colors">About</a></li>
+                        <li><a href="#courses" class="nav-link font-medium transition-colors">Courses</a></li>
+                        <li><a href="#features" class="nav-link font-medium transition-colors">Features</a></li>
+                        <li><a href="#testimonials" class="nav-link font-medium transition-colors">Testimonials</a></li>
+                    </ul>
+                    
+                    <a href="#contact" class="ml-6 px-6 py-2 gradient-bg text-white rounded-full font-medium hover:shadow-lg transition-all transform hover:scale-105">
+                        Enroll Now
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg rounded-lg mt-2 py-2 absolute w-full left-0">
+            <div class="container mx-auto px-6">
+                <ul class="flex flex-col space-y-3">
+                    <li><a href="#home" class="block py-2 hover:text-blue-600 transition-colors">Home</a></li>
+                    <li><a href="#about" class="block py-2 hover:text-blue-600 transition-colors">About</a></li>
+                    <li><a href="#courses" class="block py-2 hover:text-blue-600 transition-colors">Courses</a></li>
+                    <li><a href="#features" class="block py-2 hover:text-blue-600 transition-colors">Features</a></li>
+                    <li><a href="#testimonials" class="block py-2 hover:text-blue-600 transition-colors">Testimonials</a></li>
+                    <li class="pt-2 border-t border-gray-100">
+                        <a href="#contact" class="block py-2 gradient-text font-medium">Enroll Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
+            <div class="animate-fadeInUp">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    <span class="gradient-text">Become A</span><br>
+                    <span class="text-gray-800">Professional Java Developer</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    Master Java programming with our comprehensive courses designed by industry experts. Transform your career in just 2-3 months.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                    <a href="#courses" class="px-8 py-4 gradient-bg text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                        Explore Courses
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all transform hover:scale-105">
+                        Free Demo Class
+                    </a>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6 max-w-4xl mx-auto shadow-lg animate-fadeInUp delay-200">
+                <div class="grid grid-cols-3 divide-x divide-gray-200">
+                    <div class="px-4 py-2">
+                        <div class="text-3xl font-bold gradient-text">6+</div>
+                        <div class="text-gray-600 text-sm">Comprehensive Courses</div>
+                    </div>
+                    <div class="px-4 py-2">
+                        <div class="text-3xl font-bold gradient-text">100%</div>
+                        <div class="text-gray-600 text-sm">Practical Training</div>
+                    </div>
+                    <div class="px-4 py-2">
+                        <div class="text-3xl font-bold gradient-text">2-3 Months</div>
+                        <div class="text-gray-600 text-sm">Duration</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <div class="w-8 h-12 border-2 border-blue-600 rounded-full flex justify-center">
+                    <div class="w-1 h-3 bg-blue-600 mt-2 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Why Choose SYNTAXCORE?</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We're committed to providing the highest quality Java education with a practical, job-focused approach.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fadeInUp delay-100">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Our Mission</h3>
+                    <p class="text-gray-600 mb-6">
+                        At SYNTAXCORE, we believe in learning by doing. Our curriculum is designed to immerse students in practical coding challenges from day one, building both technical skills and problem-solving abilities.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start animate-fadeInUp delay-200">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Hands-on coding exercises in every lesson</span>
+                        </li>
+                        <li class="flex items-start animate-fadeInUp delay-300">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Small batch sizes for personalized attention</span>
+                        </li>
+                        <li class="flex items-start animate-fadeInUp delay-400">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Regular code reviews from instructors</span>
+                        </li>
+                        <li class="flex items-start animate-fadeInUp delay-500">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Daily attendance tracking for accountability</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg animate-float">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Students learning Java" 
+                         class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Java Development Courses</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive programs designed to take you from beginner to job-ready Java developer.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Core Java" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Foundation
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="course-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fab fa-java text-blue-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Core Java</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Master the foundation of Object-oriented programming with Java.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">4 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Advanced Java" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Advanced
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="course-icon bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fas fa-server text-indigo-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Advanced Java</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Learn JDBC, Servlets, JSP and more for enterprise development.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">5 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Spring Boot" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Popular
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="course-icon bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fas fa-leaf text-purple-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Spring Boot</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Build powerful Java web applications with Spring framework.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">6 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Course 4 -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Hibernate" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="course-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fas fa-database text-blue-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Hibernate</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Learn ORM and database integrations with Java applications.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">4 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 5 -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="MySQL & PL/SQL" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="course-icon bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fas fa-table text-indigo-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">MySQL & PL/SQL</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Gain solid database knowledge for backend development.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">3 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 6 -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Web Design" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="course-icon bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fab fa-html5 text-purple-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">HTML & CSS</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Design beautiful and responsive web pages for your applications.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">3 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16 animate-fadeInUp">
+                <a href="#contact" class="inline-block px-8 py-3 gradient-bg text-white font-semibold rounded-lg hover:shadow-lg transition-all transform hover:scale-105 animate-pulse">
+                    Enroll Now - Limited Seats!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Program Features</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    What makes our Java development courses stand out from the rest
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-100">
+                    <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-laptop-code text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-800">Practical Projects</h3>
+                    <p class="text-gray-600 text-center">
+                        Build real-world Java applications that showcase your skills to potential employers.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-200">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chalkboard-teacher text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-800">Expert Instructors</h3>
+                    <p class="text-gray-600 text-center">
+                        Learn from Java professionals with years of industry experience.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-300">
+                    <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-briefcase text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-800">Career Support</h3>
+                    <p class="text-gray-600 text-center">
+                        Get resume reviews, interview prep, and job placement assistance.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-gray-50 rounded-xl p-8 shadow-md animate-fadeInUp">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Daily Progress Tracking</h3>
+                        <p class="text-gray-600 mb-6">
+                            We maintain strict daily attendance records to ensure consistent progress and accountability throughout your learning journey.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Regular coding assignments</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Weekly progress reports</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Personalized feedback sessions</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Progress tracking" 
+                             class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">What Our Students Say</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Hear from our graduates who transformed their careers through our Java programs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-100">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                             alt="Rahul Sharma" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Rahul Sharma</h4>
+                            <p class="text-sm text-gray-600">Java Developer at TechSolutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "The Core Java course at SYNTAXCORE gave me the strong foundation I needed. Within 2 months of completing the course, I landed my first job as a Java developer!"
+                    </p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-200">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                             alt="Priya Patel" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Priya Patel</h4>
+                            <p class="text-sm text-gray-600">Full Stack Developer at AppWorks</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "The Spring Boot and Hibernate courses were game-changers for me. The practical projects gave me the confidence to build complete applications from scratch."
+                    </p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-300">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                             alt="Amit Singh" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Amit Singh</h4>
+                            <p class="text-sm text-gray-600">Backend Engineer at DataSystems</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "The daily attendance system kept me accountable, and the instructors were always available to help. I went from beginner to job-ready in just 3 months."
+                    </p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center animate-fadeInUp">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Java Development Journey?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join our next batch and transform your career in just 2-3 months.
+            </p>
+            <a href="#contact" class="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:shadow-xl transition-all transform hover:scale-105">
+                Enroll Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Get In Touch</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Have questions about our programs? Contact us for more information.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden animate-fadeInUp delay-100">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Enquiry Form</h3>
+                        
+                        <form id="contact-form">
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="course" class="block text-gray-700 font-medium mb-2">Course Interested In</label>
+                                <select id="course" name="course" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                    <option value="">Select a course</option>
+                                    <option value="Core Java">Core Java</option>
+                                    <option value="Advanced Java">Advanced Java</option>
+                                    <option value="Spring Boot">Spring Boot</option>
+                                    <option value="Hibernate">Hibernate</option>
+                                    <option value="MySQL & PL/SQL">MySQL & PL/SQL</option>
+                                    <option value="HTML & CSS">HTML & CSS</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" name="message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" rows="5" placeholder="Tell us about your goals"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 gradient-bg text-white font-medium rounded-lg hover:shadow-xl transition-all transform hover:scale-105">
+                                Submit Enquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden animate-fadeInUp delay-200">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Our Location</h4>
+                                    <p class="text-gray-600">
+                                        123 Developer Street, Tech City<br>
+                                        Bangalore, India 560001
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Phone Number</h4>
+                                    <p class="text-gray-600">
+                                        <a href="tel:+919876543210" class="hover:text-blue-600 transition-colors">+91 98765 43210</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Email Address</h4>
+                                    <p class="text-gray-600">
+                                        <a href="mailto:info@syntaxcore.com" class="hover:text-blue-600 transition-colors">info@syntaxcore.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Working Hours</h4>
+                                    <p class="text-gray-600">
+                                        Monday - Saturday: 9:00 AM - 6:00 PM<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-200 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-200 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-pink-100 w-10 h-10 rounded-full flex items-center justify-center text-pink-600 hover:bg-pink-200 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="gradient-text">SYNTAXCORE</span>
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        Code. Learn. Grow. Become a professional Java developer with our comprehensive courses.
+                    </p>
+                    <p class="text-gray-400">
+                        <i class="fas fa-copyright mr-1"></i> 2023 SYNTAXCORE. All rights reserved.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Courses</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Core Java</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Advanced Java</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Spring Boot</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hibernate</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">MySQL & PL/SQL</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to get updates on new courses and offers.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit" class="gradient-bg text-white px-4 py-2 rounded-r-lg hover:shadow-lg transition-all">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>
+                    Designed with <i class="fas fa-heart text-red-500"></i> by SYNTAXCORE Team
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.remove('py-2');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your enquiry! We will contact you shortly.');
+            this.reset();
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-fadeInUp');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
