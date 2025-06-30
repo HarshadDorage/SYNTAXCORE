@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,85 +14,92 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-10px);
             }
         }
-        
+
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
         }
-        
+
         /* Custom Classes */
         .animate-fadeInUp {
             animation: fadeInUp 0.8s ease-out forwards;
         }
-        
+
         .animate-float {
             animation: float 3s ease-in-out infinite;
         }
-        
+
         .animate-pulse {
             animation: pulse 2s ease-in-out infinite;
         }
-        
+
         .delay-100 {
             animation-delay: 0.1s;
         }
-        
+
         .delay-200 {
             animation-delay: 0.2s;
         }
-        
+
         .delay-300 {
             animation-delay: 0.3s;
         }
-        
+
         .delay-400 {
             animation-delay: 0.4s;
         }
-        
+
         .delay-500 {
             animation-delay: 0.5s;
         }
-        
+
         .course-card {
             transition: all 0.3s ease;
             transform-style: preserve-3d;
         }
-        
+
         .course-card:hover {
             transform: translateY(-10px) rotateX(5deg);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
-        
+
         .course-card:hover .course-icon {
             transform: rotateY(180deg) scale(1.1);
         }
-        
+
         .course-icon {
             transition: all 0.6s ease;
         }
-        
+
         .nav-link {
             position: relative;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -102,90 +110,134 @@
             background: linear-gradient(90deg, #3B82F6, #8B5CF6);
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
         .gradient-text {
             background: linear-gradient(90deg, #3B82F6, #8B5CF6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #3B82F6, #8B5CF6);
         }
-        
+
         .hero-bg {
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
-                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
         }
-        
+
         .scroll-indicator {
             animation: bounce 2s infinite;
         }
-        
+
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
+
 <body class="font-sans antialiased text-gray-800 bg-gray-50">
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-white shadow-sm">
-        <div class="container mx-auto px-6 md:px-12 lg:px-20">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <a href="#" class="text-2xl font-bold flex items-center">
-                    <span class="gradient-text text-3xl">SYNTAXCORE</span>
-                </a>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <ul class="flex space-x-8">
-                        <li><a href="#home" class="nav-link font-medium transition-colors">Home</a></li>
-                        <li><a href="#about" class="nav-link font-medium transition-colors">About</a></li>
-                        <li><a href="#courses" class="nav-link font-medium transition-colors">Courses</a></li>
-                        <li><a href="#features" class="nav-link font-medium transition-colors">Features</a></li>
-                        <li><a href="#testimonials" class="nav-link font-medium transition-colors">Testimonials</a></li>
-                    </ul>
+   <!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-white shadow-sm">
+    <div class="container mx-auto px-6 md:px-12 lg:px-20">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold flex items-center">
+                <span class="gradient-text text-3xl">SYNTAXCORE</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link font-medium transition-colors">Home</a></li>
+                    <li><a href="#about" class="nav-link font-medium transition-colors">About</a></li>
                     
-                    <a href="#contact" class="ml-6 px-6 py-2 gradient-bg text-white rounded-full font-medium hover:shadow-lg transition-all transform hover:scale-105">
-                        Enroll Now
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg rounded-lg mt-2 py-2 absolute w-full left-0">
-            <div class="container mx-auto px-6">
-                <ul class="flex flex-col space-y-3">
-                    <li><a href="#home" class="block py-2 hover:text-blue-600 transition-colors">Home</a></li>
-                    <li><a href="#about" class="block py-2 hover:text-blue-600 transition-colors">About</a></li>
-                    <li><a href="#courses" class="block py-2 hover:text-blue-600 transition-colors">Courses</a></li>
-                    <li><a href="#features" class="block py-2 hover:text-blue-600 transition-colors">Features</a></li>
-                    <li><a href="#testimonials" class="block py-2 hover:text-blue-600 transition-colors">Testimonials</a></li>
-                    <li class="pt-2 border-t border-gray-100">
-                        <a href="#contact" class="block py-2 gradient-text font-medium">Enroll Now</a>
+                    <!-- Courses Dropdown -->
+                    <li class="relative group">
+                        <button class="nav-link font-medium transition-colors flex items-center">
+                            Courses <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-1">
+                            <a href="#courses" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600">All Courses</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600">Java Core+Advance</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600">React + Java</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600">Python</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600">Software Testing</a>
+                        </div>
                     </li>
+                    
+                    <li><a href="#features" class="nav-link font-medium transition-colors">Features</a></li>
+                    <li><a href="#testimonials" class="nav-link font-medium transition-colors">Success Stories</a></li>
                 </ul>
+
+                <a href="#contact" class="ml-6 px-6 py-2 gradient-bg text-white rounded-full font-medium hover:shadow-lg transition-all transform hover:scale-105">
+                    Enroll Now
+                </a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-    </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg rounded-lg mt-2 py-2 absolute w-full left-0">
+        <div class="container mx-auto px-6">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="#home" class="block py-2 hover:text-blue-600 transition-colors">Home</a></li>
+                <li><a href="#about" class="block py-2 hover:text-blue-600 transition-colors">About</a></li>
+                
+                <!-- Mobile Dropdown -->
+                <li class="relative">
+                    <button id="mobile-dropdown-button" class="w-full flex justify-between items-center py-2 hover:text-blue-600 transition-colors">
+                        <span>Courses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <ul id="mobile-dropdown" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-blue-100">
+                        <li><a href="#courses" class="block py-2 hover:text-blue-600">All Courses</a></li>
+                        <li><a href="#" class="block py-2 hover:text-blue-600">Java Core+Advance</a></li>
+                        <li><a href="#" class="block py-2 hover:text-blue-600">React + Java</a></li>
+                        <li><a href="#" class="block py-2 hover:text-blue-600">Python</a></li>
+                        <li><a href="#" class="block py-2 hover:text-blue-600">Software Testing</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#features" class="block py-2 hover:text-blue-600 transition-colors">Features</a></li>
+                <li><a href="#testimonials" class="block py-2 hover:text-blue-600 transition-colors">Success Stories</a></li>
+                <li class="pt-2 border-t border-gray-100">
+                    <a href="#contact" class="block py-2 gradient-text font-medium">Enroll Now</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
@@ -195,43 +247,46 @@
                     <span class="gradient-text">Become A</span><br>
                     <span class="text-gray-800">Professional Java Developer</span>
                 </h1>
-                
+
                 <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-                    Master Java programming with our comprehensive courses designed by industry experts. Transform your career in just 2-3 months.
+                    Master Java programming with our comprehensive courses designed by industry experts. Transform your
+                    career in just 2-3 months.
                 </p>
-                
+
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-                    <a href="#courses" class="px-8 py-4 gradient-bg text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                    <a href="#courses"
+                        class="px-8 py-4 gradient-bg text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
                         Explore Courses
                     </a>
-                    <a href="#contact" class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all transform hover:scale-105">
+                    <a href="#contact"
+                        class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all transform hover:scale-105">
                         Free Demo Class
                     </a>
                 </div>
             </div>
-            
-           <div class="bg-white rounded-xl p-4 md:p-6 max-w-4xl mx-auto shadow-lg animate-fadeInUp delay-200">
-    <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
-        <!-- Stat 1 -->
-        <div class="px-2 py-4 sm:py-2 sm:px-4 text-center">
-            <div class="text-2xl md:text-3xl font-bold gradient-text">8+</div>
-            <div class="text-gray-600 text-xs md:text-sm mt-1">Comprehensive Courses</div>
-        </div>
-        
-        <!-- Stat 2 -->
-        <div class="px-2 py-4 sm:py-2 sm:px-4 text-center">
-            <div class="text-2xl md:text-3xl font-bold gradient-text">100%</div>
-            <div class="text-gray-600 text-xs md:text-sm mt-1">Practical Training</div>
-        </div>
-        
-        <!-- Stat 3 -->
-        <div class="px-2 py-4 sm:py-2 sm:px-4 text-center">
-            <div class="text-2xl md:text-3xl font-bold gradient-text">20+</div>
-            <div class="text-gray-600 text-xs md:text-sm mt-1">Hiring Partners</div>
-        </div>
-    </div>
-</div>
-            
+
+            <div class="bg-white rounded-xl p-4 md:p-6 max-w-4xl mx-auto shadow-lg animate-fadeInUp delay-200">
+                <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+                    <!-- Stat 1 -->
+                    <div class="px-2 py-4 sm:py-2 sm:px-4 text-center">
+                        <div class="text-2xl md:text-3xl font-bold gradient-text">8+</div>
+                        <div class="text-gray-600 text-xs md:text-sm mt-1">Comprehensive Courses</div>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="px-2 py-4 sm:py-2 sm:px-4 text-center">
+                        <div class="text-2xl md:text-3xl font-bold gradient-text">100%</div>
+                        <div class="text-gray-600 text-xs md:text-sm mt-1">Practical Training</div>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="px-2 py-4 sm:py-2 sm:px-4 text-center">
+                        <div class="text-2xl md:text-3xl font-bold gradient-text">20+</div>
+                        <div class="text-gray-600 text-xs md:text-sm mt-1">Hiring Partners</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
                 <div class="w-8 h-12 border-2 border-blue-600 rounded-full flex justify-center">
                     <div class="w-1 h-3 bg-blue-600 mt-2 rounded-full"></div>
@@ -247,15 +302,18 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Why Choose SYNTAXCORE?</h2>
                 <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    We're committed to providing the highest quality Java education with a practical, job-focused approach.
+                    We're committed to providing the highest quality Java education with a practical, job-focused
+                    approach.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="animate-fadeInUp delay-100">
                     <h3 class="text-2xl font-bold mb-6 text-gray-800">Our Mission</h3>
                     <p class="text-gray-600 mb-6">
-                        At SYNTAXCORE, we believe in learning by doing. Our curriculum is designed to immerse students in practical coding challenges from day one, building both technical skills and problem-solving abilities.
+                        At SYNTAXCORE, we believe in learning by doing. Our curriculum is designed to immerse students
+                        in practical coding challenges from day one, building both technical skills and problem-solving
+                        abilities.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-start animate-fadeInUp delay-200">
@@ -277,234 +335,250 @@
                     </ul>
                 </div>
                 <div class="rounded-xl overflow-hidden shadow-lg animate-float">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Students learning Java" 
-                         class="w-full h-auto object-cover">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Students learning Java" class="w-full h-auto object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- Updated Courses Section -->
-<section id="courses" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 md:px-12 lg:px-20">
-        <div class="text-center mb-16 animate-fadeInUp">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Comprehensive Courses</h2>
-            <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Choose from our industry-relevant programs designed to make you job-ready.
-            </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Course 1 - Java Core+Advance -->
-            <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-100">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Java Core+Advance" 
-                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    <div class="absolute top-4 right-4 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full">
-                        Popular
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-center mb-4">
-                        <div class="course-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center">
-                            <i class="fab fa-java text-blue-600 text-3xl"></i>
+    <!-- Updated Courses Section -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Comprehensive Courses</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Choose from our industry-relevant programs designed to make you job-ready.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 - Java Core+Advance -->
+                <div
+                    class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Java Core+Advance"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Popular
                         </div>
                     </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-gray-800 text-center w-full">Java Core + Advance</h3>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div
+                                class="course-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fab fa-java text-blue-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Java Core + Advance</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Master Java programming from fundamentals to advanced concepts including OOP, JDBC,
+                            Servlets, and JSP.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">8 Weeks</span>
+                        </div>
                     </div>
-                    <p class="text-gray-600 mb-4 text-center">
-                        Master Java programming from fundamentals to advanced concepts including OOP, JDBC, Servlets, and JSP.
-                    </p>
-                    <div class="text-center">
-                        <span class="gradient-text font-bold">8 Weeks</span>
+                </div>
+
+                <!-- Course 2 - React + Java -->
+                <div
+                    class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="React + Java"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Trending
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div
+                                class="course-icon bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fab fa-react text-indigo-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">React + Java</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Full stack development with React frontend and Java Spring Boot backend.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">10 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 - Python -->
+                <div
+                    class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Python"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div
+                                class="course-icon bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fab fa-python text-purple-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Python Programming</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Learn Python from basics to advanced concepts including OOP, data structures, and
+                            frameworks.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">6 Weeks</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Course 2 - React + Java -->
-            <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-200">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="React + Java" 
-                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    <div class="absolute top-4 right-4 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-full">
-                        Trending
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Course 4 - Software Testing -->
+                <div
+                    class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Software Testing"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-center mb-4">
-                        <div class="course-icon bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center">
-                            <i class="fab fa-react text-indigo-600 text-3xl"></i>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div
+                                class="course-icon bg-green-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fas fa-bug text-green-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Software Testing</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Comprehensive training in both Automation and Manual testing methodologies.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">8 Weeks</span>
                         </div>
                     </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-gray-800 text-center w-full">React + Java</h3>
+                </div>
+
+                <!-- Course 5 - Internship Program -->
+                <div
+                    class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Internship Program"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            New
+                        </div>
                     </div>
-                    <p class="text-gray-600 mb-4 text-center">
-                        Full stack development with React frontend and Java Spring Boot backend.
-                    </p>
-                    <div class="text-center">
-                        <span class="gradient-text font-bold">10 Weeks</span>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div
+                                class="course-icon bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fas fa-briefcase text-yellow-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Internship Program</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Hands-on training with real-world projects and mentorship from industry experts.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">12 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 6 - Client Companies -->
+                <div
+                    class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Hiring Partners"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="course-icon bg-red-100 w-16 h-16 rounded-full flex items-center justify-center">
+                                <i class="fas fa-building text-red-600 text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800 text-center w-full">Hiring Partners</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-center">
+                            We have 20+ client companies that hire directly from our placement program.
+                        </p>
+                        <div class="text-center">
+                            <span class="gradient-text font-bold">Placement Support</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Course 3 - Python -->
-            <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-300">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Python" 
-                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-center mb-4">
-                        <div class="course-icon bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center">
-                            <i class="fab fa-python text-purple-600 text-3xl"></i>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-gray-800 text-center w-full">Python Programming</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-center">
-                        Learn Python from basics to advanced concepts including OOP, data structures, and frameworks.
-                    </p>
-                    <div class="text-center">
-                        <span class="gradient-text font-bold">6 Weeks</span>
-                    </div>
-                </div>
+
+            <div class="text-center mt-16 animate-fadeInUp">
+                <a href="#contact"
+                    class="inline-block px-8 py-3 gradient-bg text-white font-semibold rounded-lg hover:shadow-lg transition-all transform hover:scale-105 animate-pulse">
+                    Enroll Now - Limited Seats!
+                </a>
             </div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-            <!-- Course 4 - Software Testing -->
-            <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-100">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Software Testing" 
-                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-center mb-4">
-                        <div class="course-icon bg-green-100 w-16 h-16 rounded-full flex items-center justify-center">
-                            <i class="fas fa-bug text-green-600 text-3xl"></i>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-gray-800 text-center w-full">Software Testing</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-center">
-                        Comprehensive training in both Automation and Manual testing methodologies.
-                    </p>
-                    <div class="text-center">
-                        <span class="gradient-text font-bold">8 Weeks</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Course 5 - Internship Program -->
-            <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-200">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Internship Program" 
-                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                        New
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-center mb-4">
-                        <div class="course-icon bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center">
-                            <i class="fas fa-briefcase text-yellow-600 text-3xl"></i>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-gray-800 text-center w-full">Internship Program</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-center">
-                        Hands-on training with real-world projects and mentorship from industry experts.
-                    </p>
-                    <div class="text-center">
-                        <span class="gradient-text font-bold">12 Weeks</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Course 6 - Client Companies -->
-            <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fadeInUp delay-300">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Hiring Partners" 
-                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-center mb-4">
-                        <div class="course-icon bg-red-100 w-16 h-16 rounded-full flex items-center justify-center">
-                            <i class="fas fa-building text-red-600 text-3xl"></i>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-gray-800 text-center w-full">Hiring Partners</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-center">
-                        We have 20+ client companies that hire directly from our placement program.
-                    </p>
-                    <div class="text-center">
-                        <span class="gradient-text font-bold">Placement Support</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-16 animate-fadeInUp">
-            <a href="#contact" class="inline-block px-8 py-3 gradient-bg text-white font-semibold rounded-lg hover:shadow-lg transition-all transform hover:scale-105 animate-pulse">
-                Enroll Now - Limited Seats!
-            </a>
-        </div>
     </section>
 
-<!-- Add this new section after Courses section -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-6 md:px-12 lg:px-20">
-        <div class="bg-gray-50 rounded-xl p-8 shadow-lg animate-fadeInUp">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Internship & Job Placement Program</h3>
-                    <p class="text-gray-600 mb-6">
-                        Our unique internship program bridges the gap between learning and real-world experience. 
-                        After completing your coursework, you'll work on live projects under expert guidance.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span class="text-gray-600">4-12 weeks internship after course completion</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span class="text-gray-600">Work on real client projects</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span class="text-gray-600">Certificate of internship with project details</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
-                            <span class="text-gray-600">Direct placement opportunities with 20+ hiring partners</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="rounded-xl overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Internship program" 
-                         class="w-full h-auto object-cover">
+    <!-- Add this new section after Courses section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-lg animate-fadeInUp">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Internship & Job Placement Program</h3>
+                        <p class="text-gray-600 mb-6">
+                            Our unique internship program bridges the gap between learning and real-world experience.
+                            After completing your coursework, you'll work on live projects under expert guidance.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">4-12 weeks internship after course completion</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Work on real client projects</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Certificate of internship with project details</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Direct placement opportunities with 20+ hiring
+                                    partners</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Internship program" class="w-full h-auto object-cover">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Features Section -->
     <section id="features" class="py-20 bg-white">
@@ -516,9 +590,10 @@
                     What makes our Java development courses stand out from the rest
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-100">
+                <div
+                    class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-100">
                     <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-laptop-code text-blue-600 text-xl"></i>
                     </div>
@@ -527,8 +602,9 @@
                         Build real-world Java applications that showcase your skills to potential employers.
                     </p>
                 </div>
-                
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-200">
+
+                <div
+                    class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-200">
                     <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-chalkboard-teacher text-indigo-600 text-xl"></i>
                     </div>
@@ -537,8 +613,9 @@
                         Learn from Java professionals with years of industry experience.
                     </p>
                 </div>
-                
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-300">
+
+                <div
+                    class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-300">
                     <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-briefcase text-purple-600 text-xl"></i>
                     </div>
@@ -548,13 +625,14 @@
                     </p>
                 </div>
             </div>
-            
+
             <div class="mt-16 bg-gray-50 rounded-xl p-8 shadow-md animate-fadeInUp">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div>
                         <h3 class="text-2xl font-bold mb-6 text-gray-800">Daily Progress Tracking</h3>
                         <p class="text-gray-600 mb-6">
-                            We maintain strict daily attendance records to ensure consistent progress and accountability throughout your learning journey.
+                            We maintain strict daily attendance records to ensure consistent progress and accountability
+                            throughout your learning journey.
                         </p>
                         <ul class="space-y-4">
                             <li class="flex items-start">
@@ -572,10 +650,154 @@
                         </ul>
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                             alt="Progress tracking" 
-                             class="w-full h-auto object-cover">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Progress tracking" class="w-full h-auto object-cover">
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Upcoming Batch Schedules</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Choose the schedule that fits your routine
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Morning Batch -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-sun text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Morning Batch</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">7:00 AM - 9:00 AM (IST)</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Starts: 15th June 2023</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Mon-Fri (Weekend Projects)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Evening Batch -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-moon text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Evening Batch</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">7:00 PM - 9:00 PM (IST)</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+                            <span>Starts: 20th June 2023</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+                            <span>Mon-Fri (Weekend Support)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Weekend Batch -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-calendar-alt text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Weekend Batch</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">10:00 AM - 4:00 PM (IST)</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Starts: 17th June 2023</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Sat-Sun (Weekday Support)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#contact"
+                    class="inline-flex items-center px-6 py-3 gradient-bg text-white rounded-lg hover:shadow-lg transition-all">
+                    <i class="fas fa-calendar-check mr-2"></i>
+                    Book Your Seat Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="certificate-sample.jpg" alt="Sample Certificate"
+                        class="rounded-lg shadow-xl w-full max-w-md mx-auto">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold mb-6">Industry-Recognized Certification</h2>
+                    <p class="text-lg mb-6">Get certified upon course completion with our verifiable digital
+                        certificates</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            Shareable digital badge</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            Verification QR code</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            LinkedIn integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center transition-all hover:shadow-md hover:border-blue-100">
+                    <div class="text-3xl font-bold gradient-text mb-2">95%</div>
+                    <div class="text-gray-600 font-medium">Placement Rate</div>
+                    <div class="mt-2 text-xs text-gray-400">Within 3 months of completion</div>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center transition-all hover:shadow-md hover:border-blue-100">
+                    <div class="text-3xl font-bold gradient-text mb-2">50+</div>
+                    <div class="text-gray-600 font-medium">Hiring Partners</div>
+                    <div class="mt-2 text-xs text-gray-400">Top tech companies</div>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center transition-all hover:shadow-md hover:border-blue-100">
+                    <div class="text-3xl font-bold gradient-text mb-2">2.5K+</div>
+                    <div class="text-gray-600 font-medium">Students Trained</div>
+                    <div class="mt-2 text-xs text-gray-400">Since 2020</div>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center transition-all hover:shadow-md hover:border-blue-100">
+                    <div class="text-3xl font-bold gradient-text mb-2">4.9/5</div>
+                    <div class="text-gray-600 font-medium">Average Rating</div>
+                    <div class="mt-2 text-xs text-gray-400">From 500+ reviews</div>
                 </div>
             </div>
         </div>
@@ -584,231 +806,437 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 md:px-12 lg:px-20">
-            <div class="text-center mb-16 animate-fadeInUp">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">What Our Students Say</h2>
-                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Success Stories</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full mb-6"></div>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Hear from our graduates who transformed their careers through our Java programs.
+                    Hear from our alumni who transformed their careers through our programs
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-100">
+                <div
+                    class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
-                             alt="Rahul Sharma" 
-                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                            alt="Rahul Sharma"
+                            class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-white shadow">
                         <div>
                             <h4 class="font-bold text-gray-800">Rahul Sharma</h4>
-                            <p class="text-sm text-gray-600">Java Developer at TechSolutions</p>
+                            <p class="text-sm text-gray-600">Java Developer @TechSolutions</p>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic mb-6">
-                        "The Core Java course at SYNTAXCORE gave me the strong foundation I needed. Within 2 months of completing the course, I landed my first job as a Java developer!"
+                    <p class="text-gray-600 mb-6 relative pl-4 border-l-2 border-blue-200">
+                        <i class="fas fa-quote-left text-blue-100 text-2xl absolute -left-1 -top-2"></i>
+                        The Core Java course gave me the strong foundation I needed. Within 2 months of completion, I
+                        landed my first developer job!
                     </p>
-                    <div class="flex">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        <span>Completed: March 2023</span>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 2 -->
-                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-200">
+                <div
+                    class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
-                             alt="Priya Patel" 
-                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                            alt="Priya Patel"
+                            class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-white shadow">
                         <div>
                             <h4 class="font-bold text-gray-800">Priya Patel</h4>
-                            <p class="text-sm text-gray-600">Full Stack Developer at AppWorks</p>
+                            <p class="text-sm text-gray-600">Full Stack Dev @AppWorks</p>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic mb-6">
-                        "The Spring Boot and Hibernate courses were game-changers for me. The practical projects gave me the confidence to build complete applications from scratch."
+                    <p class="text-gray-600 mb-6 relative pl-4 border-l-2 border-blue-200">
+                        <i class="fas fa-quote-left text-blue-100 text-2xl absolute -left-1 -top-2"></i>
+                        The Spring Boot and Hibernate courses were game-changers. I built 3 real projects during the
+                        course that helped me get hired.
                     </p>
-                    <div class="flex">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        <span>Completed: January 2023</span>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 3 -->
-                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInUp delay-300">
+                <div
+                    class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
-                             alt="Amit Singh" 
-                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                            alt="Amit Singh"
+                            class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-white shadow">
                         <div>
                             <h4 class="font-bold text-gray-800">Amit Singh</h4>
-                            <p class="text-sm text-gray-600">Backend Engineer at DataSystems</p>
+                            <p class="text-sm text-gray-600">Backend Engineer @DataSystems</p>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic mb-6">
-                        "The daily attendance system kept me accountable, and the instructors were always available to help. I went from beginner to job-ready in just 3 months."
+                    <p class="text-gray-600 mb-6 relative pl-4 border-l-2 border-blue-200">
+                        <i class="fas fa-quote-left text-blue-100 text-2xl absolute -left-1 -top-2"></i>
+                        The daily accountability system and mentor support helped me stay on track. Went from beginner
+                        to job-ready in 3 months!
                     </p>
-                    <div class="flex">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        <span>Completed: November 2022</span>
                     </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="#contact"
+                    class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-medium hover:shadow-lg transition-all">
+                    <i class="fas fa-comment-dots mr-2"></i> Share Your Success Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Why We Stand Out</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mt-6">
+                    See how our training compares to traditional learning options
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-4 text-left font-semibold text-gray-700">Key Features</th>
+                                <th class="px-6 py-4 text-center font-semibold text-gray-700">SYNTAXCORE</th>
+                                <th class="px-6 py-4 text-center font-semibold text-gray-700">Others</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <!-- Row 1 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">Project-Based Curriculum</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Row 2 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">Industry Expert Instructors</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Row 3 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">Daily Progress Tracking</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Row 4 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">Guaranteed Internship</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Row 5 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">20+ Hiring Partners</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Row 6 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">1:1 Mentorship</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Row 7 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">Job Placement Support</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Row 8 -->
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900">Flexible Payment Options</td>
+                                <td class="px-6 py-4 text-center text-green-500">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </td>
+                                <td class="px-6 py-4 text-center text-gray-400">
+                                    <i class="fas fa-times-circle text-xl"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="px-6 py-4 bg-gray-50 text-center">
+                    <a href="#contact"
+                        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium hover:shadow-lg transition-all">
+                        <i class="fas fa-chalkboard-teacher mr-2"></i> Experience Our Difference
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- CTA Section -->
     <section class="py-16 gradient-bg">
         <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center animate-fadeInUp">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Java Development Journey?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Java Development Journey?
+            </h2>
             <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                 Join our next batch and transform your career in just 2-3 months.
             </p>
-            <a href="#contact" class="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:shadow-xl transition-all transform hover:scale-105">
+            <a href="#contact"
+                class="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:shadow-xl transition-all transform hover:scale-105">
                 Enroll Now
             </a>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6 md:px-12 lg:px-20">
-            <div class="text-center mb-16 animate-fadeInUp">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Get In Touch</h2>
-                <div class="w-20 h-1 gradient-bg mx-auto rounded-full mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Have questions about our programs? Contact us for more information.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Contact Form -->
-                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden animate-fadeInUp delay-100">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Enquiry Form</h3>
-                        
-                        <form id="contact-form">
-                            <div class="mb-6">
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your name" required>
+    <!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 md:px-12 lg:px-20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Let's Connect</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Ready to start your coding journey? Reach out to us for any questions or to enroll in our programs.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Contact Information Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div class="p-8 h-full">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-headset text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Contact Details</h3>
+                    </div>
+                    
+                    <div class="space-y-5">
+                        <div class="flex items-start">
+                            <div class="bg-blue-50 p-2 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-500"></i>
                             </div>
-                            <div class="mb-6">
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your email" required>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Our Campus</h4>
+                                <p class="text-gray-600">
+                                    123 Developer Street, Tech City<br>
+                                    Bangalore, India 560001
+                                </p>
                             </div>
-                            <div class="mb-6">
-                                <label for="course" class="block text-gray-700 font-medium mb-2">Course Interested In</label>
-                                <select id="course" name="course" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
-                                    <option value="">Select a course</option>
-                                    <option value="Core Java">Core Java</option>
-                                    <option value="Advanced Java">Advanced Java</option>
-                                    <option value="Spring Boot">Spring Boot</option>
-                                    <option value="Hibernate">Hibernate</option>
-                                    <option value="MySQL & PL/SQL">MySQL & PL/SQL</option>
-                                    <option value="HTML & CSS">HTML & CSS</option>
-                                </select>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-50 p-2 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-blue-500"></i>
                             </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
-                                <textarea id="message" name="message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" rows="5" placeholder="Tell us about your goals"></textarea>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Call Us</h4>
+                                <p class="text-gray-600">
+                                    <a href="tel:+919876543210" class="hover:text-blue-600 transition-colors">+91 98765 43210</a><br>
+                                    <a href="tel:+911234567890" class="hover:text-blue-600 transition-colors">+91 12345 67890</a>
+                                </p>
                             </div>
-                            <button type="submit" class="w-full py-3 gradient-bg text-white font-medium rounded-lg hover:shadow-xl transition-all transform hover:scale-105">
-                                Submit Enquiry
-                            </button>
-                        </form>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-50 p-2 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Email Us</h4>
+                                <p class="text-gray-600">
+                                    <a href="mailto:info@syntaxcore.com" class="hover:text-blue-600 transition-colors">info@syntaxcore.com</a><br>
+                                    <a href="mailto:admissions@syntaxcore.com" class="hover:text-blue-600 transition-colors">admissions@syntaxcore.com</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-50 p-2 rounded-full mr-4">
+                                <i class="fas fa-clock text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Working Hours</h4>
+                                <p class="text-gray-600">
+                                    Mon-Sat: 9:00 AM - 6:00 PM<br>
+                                    Sunday: Closed
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Contact Info -->
-                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden animate-fadeInUp delay-200">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Our Location</h4>
-                                    <p class="text-gray-600">
-                                        123 Developer Street, Tech City<br>
-                                        Bangalore, India 560001
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-phone text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Phone Number</h4>
-                                    <p class="text-gray-600">
-                                        <a href="tel:+919876543210" class="hover:text-blue-600 transition-colors">+91 98765 43210</a>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-envelope text-purple-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Email Address</h4>
-                                    <p class="text-gray-600">
-                                        <a href="mailto:info@syntaxcore.com" class="hover:text-blue-600 transition-colors">info@syntaxcore.com</a>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-green-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-clock text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Working Hours</h4>
-                                    <p class="text-gray-600">
-                                        Monday - Saturday: 9:00 AM - 6:00 PM<br>
-                                        Sunday: Closed
-                                    </p>
-                                </div>
-                            </div>
+            </div>
+
+            <!-- Contact Form Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden lg:col-span-2">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-paper-plane text-indigo-600 text-xl"></i>
                         </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-200 transition-colors">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-200 transition-colors">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="bg-pink-100 w-10 h-10 rounded-full flex items-center justify-center text-pink-600 hover:bg-pink-200 transition-colors">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Send Us a Message</h3>
                     </div>
+
+                    <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="md:col-span-2">
+                            <label for="purpose" class="block text-gray-700 font-medium mb-2">Purpose of Contact</label>
+                            <select id="purpose" name="purpose" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                <option value="">Select an option</option>
+                                <option value="Admission">Admission Inquiry</option>
+                                <option value="Course">Course Information</option>
+                                <option value="Placement">Placement Query</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Your name" required>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="your.email@example.com" required>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="+91 98765 43210">
+                        </div>
+
+                        <div>
+                            <label for="course" class="block text-gray-700 font-medium mb-2">Course Interested In</label>
+                            <select id="course" name="course" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                <option value="">Select a course</option>
+                                <option value="Core Java">Core Java</option>
+                                <option value="Advanced Java">Advanced Java</option>
+                                <option value="Full Stack">Full Stack (React + Java)</option>
+                                <option value="Python">Python Programming</option>
+                                <option value="Testing">Software Testing</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="batch" class="block text-gray-700 font-medium mb-2">Preferred Batch</label>
+                            <select id="batch" name="batch" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                <option value="">Select batch timing</option>
+                                <option value="Morning">Morning (7-9 AM)</option>
+                                <option value="Evening">Evening (7-9 PM)</option>
+                                <option value="Weekend">Weekend (10 AM-4 PM)</option>
+                            </select>
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Tell us about your goals and questions..."></textarea>
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:shadow-xl transition-all transform hover:scale-[1.02] flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Social Media & Map -->
+        <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-6">Follow Us On Social Media</h3>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 transition-colors">
+                        <i class="fab fa-facebook-f mr-2"></i> Facebook
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 bg-blue-400 text-white rounded-full hover:bg-blue-500 transition-colors">
+                        <i class="fab fa-twitter mr-2"></i> Twitter
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors">
+                        <i class="fab fa-instagram mr-2"></i> Instagram
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
+                        <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition-colors">
+                        <i class="fab fa-youtube mr-2"></i> YouTube
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.003139763618!2d77.59451431482193!3d12.9717189908569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf5df53c20bc6e3d!2sBangalore%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
@@ -825,18 +1253,20 @@
                         <i class="fas fa-copyright mr-1"></i> 2023 SYNTAXCORE. All rights reserved.
                     </p>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a>
+                        </li>
+                        <li><a href="#testimonials"
+                                class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Courses</h4>
                     <ul class="space-y-2">
@@ -847,21 +1277,23 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">MySQL & PL/SQL</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
                     <p class="text-gray-400 mb-4">
                         Subscribe to get updates on new courses and offers.
                     </p>
                     <form class="flex">
-                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
-                        <button type="submit" class="gradient-bg text-white px-4 py-2 rounded-r-lg hover:shadow-lg transition-all">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="gradient-bg text-white px-4 py-2 rounded-r-lg hover:shadow-lg transition-all">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>
                     Designed with <i class="fas fa-heart text-red-500"></i> by SYNTAXCORE Team
@@ -870,15 +1302,39 @@
         </div>
     </footer>
 
+
+    <script>
+    // Form submission with better UX
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual AJAX call)
+        setTimeout(() => {
+            // Show success message
+            alert('Thank you for your message! We will contact you shortly.');
+            
+            // Reset form
+            this.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 1500);
+    });
+</script>
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
 
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-lg');
@@ -893,17 +1349,17 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
+
                     // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
@@ -914,7 +1370,7 @@
         });
 
         // Form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for your enquiry! We will contact you shortly.');
             this.reset();
@@ -923,11 +1379,11 @@
         // Animation on scroll
         function animateOnScroll() {
             const elements = document.querySelectorAll('.animate-fadeInUp');
-            
+
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.2;
-                
+
                 if (elementPosition < screenPosition) {
                     element.style.opacity = '1';
                     element.style.transform = 'translateY(0)';
@@ -938,5 +1394,17 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
     </script>
+    <script>
+    // Mobile dropdown functionality
+    document.getElementById('mobile-dropdown-button').addEventListener('click', function() {
+        const dropdown = document.getElementById('mobile-dropdown');
+        const icon = this.querySelector('i');
+        
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('transform');
+        icon.classList.toggle('rotate-180');
+    });
+</script>
 </body>
+
 </html>
